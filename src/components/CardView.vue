@@ -6,22 +6,19 @@
         <div class="row">
           <div class="col">
             <q-item-section class="q-mt-md q-gutter-md text-h6 text-bold">
-              <q-item-label>Product</q-item-label>
+              <q-item-label> {{ product }}</q-item-label>
             </q-item-section>
 
             <q-badge outline color="orange" label="Available" />
           </div>
           <div class="col1">
             <q-item-section class="q-ma-sm">
-              <q-item-label class="text-bold">$2838</q-item-label>
+              <q-item-label class="text-bold">$ {{ price }}</q-item-label>
             </q-item-section>
           </div>
         </div>
         <q-item-section class="q-ma-md">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            impedit sunt corporis, doloribus earum tenetur modi iste sequi minus
-          </p>
+          <p>{{ description }}</p>
         </q-item-section>
         <q-item-section class="q-mt-md">
           <q-rating
@@ -61,5 +58,7 @@
 
 <script setup>
 import { ref } from "vue";
+const props = defineProps(["product", "price", "description"]);
+
 const rating = ref(3);
 </script>

@@ -8,12 +8,31 @@
     <div class="flex-col q-pa-md">
       <q-item-section class="text-weight-medium">
         <table>
-          <tr>
+          <th>
             <td>Name</td>
-            <td>xyc</td>
-          </tr>
+            <td>email</td>
+            <td>phone</td>
+          </th>
+          <tbody>
+            <div v-for="users in user" :key="users.id">
+<tr>
+  <td>{{ users.name }}</td>
+  <td>{{ users.email}}</td>
+  <td>{{ users.phone }}</td>
+</tr>
+
+            </div>
+          </tbody>
         </table>
       </q-item-section>
     </div>
   </q-card>
 </template>
+
+<script setup>
+import useUser from "app/src/js/composable/user";
+import { onMounted } from "vue";
+
+const { user,getUser } = useUser();
+onMounted(getUser);
+</script>
