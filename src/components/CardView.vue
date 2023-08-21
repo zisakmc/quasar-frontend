@@ -7,7 +7,7 @@
   <div v-for="products in product" :key="products.id" class="col-sm-5 col-md-3 max-sm">
     <div class="q-pa-md">
       <q-card class="my-card q-pa-md" flat bordered>
-        <img src="https://cdn.quasar.dev/img/mountains.jpg" />
+        <img :src="products.name" alt="image" />
         <div class="row">
           <div class="col">
             <q-item-section class="q-mt-md q-gutter-md text-h6 text-bold">
