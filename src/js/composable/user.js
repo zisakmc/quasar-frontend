@@ -6,7 +6,7 @@ export default function useUser() {
   let user = ref([]);
   const getUser = async () => {
     try {
-      let response = await axios.get("/api/user");
+      let response = await axios.get("http://localhost:8000/api/user");
       user.value = response.data.data;
     } catch (error) {
       console.error(error);
