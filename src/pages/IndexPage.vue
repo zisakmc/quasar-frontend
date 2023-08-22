@@ -2,10 +2,7 @@
   <q-page>
     <SliderView />
 
-    <div class="row">
-      <!-- v-for="products in product" :key="products.id"> -->
-      <!-- <CardView v-for="products in product" :key="products.id" product="{{ product.name }}" price="{{ product.price}}" -->
-      <!-- description="{{ product.description }}" /> -->
+    <div class="row justify-center">
       <CardView />
     </div>
   </q-page>
