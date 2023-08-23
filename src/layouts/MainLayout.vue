@@ -2,20 +2,65 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated class="bg-indigo">
       <q-toolbar>
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-        <q-toolbar-title> E-corp </q-toolbar-title>
-        <NavView />
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
+        <q-toolbar-title>
+          <RouterLink to="/" class="text-white text-bold"> E-corp </RouterLink>
+        </q-toolbar-title>
+        <div class="gt-sm flex justify-center q-pl-md text-bold text-lg">
+          <div>
+            <ul>
+              <RouterLink to="/" class="text-white">Home</RouterLink>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <RouterLink to="/#" class="text-white">Service</RouterLink>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <RouterLink to="/about" class="text-white">About</RouterLink>
+            </ul>
+          </div>
+        </div>
+
         <div>
           <RouterLink to="/shoppingKart">
-            <q-btn flat dense round icon="shopping_cart" color="white" class="q-ma-sm">
+            <q-btn
+              flat
+              dense
+              round
+              icon="shopping_cart"
+              color="white"
+              class="q-ma-sm"
+            >
               <q-badge color="red" floating class="q-ml-md">4</q-badge>
             </q-btn>
           </RouterLink>
-          <q-avatar>
+          <q-avatar class="q-mr-md">
             <img src="https://cdn.quasar.dev/img/avatar.png" />
+
+            <!--TODO:-->
             <q-fab v-model="fab" color="primary" direction="down">
-              <q-fab-action color="primary" @click="onClick" icon="mail" label="Email" />
-              <q-fab-action color="secondary" @click="onClick" icon="alarm" label="Alarm" />
+              <q-fab-action
+                color="primary"
+                @click="onClick"
+                icon="mail"
+                label="Email"
+              />
+              <q-fab-action
+                color="secondary"
+                @click="onClick"
+                icon="alarm"
+                label="Alarm"
+              />
             </q-fab>
           </q-avatar>
         </div>
@@ -26,7 +71,11 @@
       <q-list>
         <q-item-label header> Dashboard </q-item-label>
 
-        <EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
+        <EssentialLink
+          v-for="link in essentialLinks"
+          :key="link.title"
+          v-bind="link"
+        />
       </q-list>
     </q-drawer>
 
@@ -39,7 +88,6 @@
 <script>
 import { defineComponent, ref } from "vue";
 import EssentialLink from "components/EssentialLink.vue";
-import NavView from "components/NavView.vue";
 
 const linksList = [
   {
@@ -84,7 +132,7 @@ export default defineComponent({
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
       fab: ref(true),
-      onClick() { },
+      onClick() {},
     };
   },
 });

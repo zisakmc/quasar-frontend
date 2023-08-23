@@ -1,8 +1,18 @@
 import profile from "../pages/ProfilePage.vue";
 import order from "../pages/OrderPage.vue";
 import about from "../pages/AboutPage.vue";
+import login from "../pages/LoginPage.vue";
 import ShoppingKart from "../pages/ShoppingKart.vue";
 const routes = [
+  {
+    name: "login",
+    path: "/login",
+    component: login,
+    meta: {
+      middleware: "guest",
+      title: "login",
+    },
+  },
   {
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
@@ -29,6 +39,9 @@ const routes = [
         component: ShoppingKart,
       },
     ],
+    meta: {
+      middleware: "auth",
+    },
   },
 
   // Always leave this as last one,

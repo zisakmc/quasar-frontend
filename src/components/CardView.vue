@@ -1,5 +1,5 @@
 <template>
-  <div v-if="product.length == 0">
+  <div v-if="product.length === 0">
     <h1 class="q-pa-md text-semibold">
       No product Available please wait for update
     </h1>
@@ -9,7 +9,6 @@
     :key="products.id"
     class="row items-start q-qutter-md q-pa-md"
   >
-    <!-- class="col-sm-5 col-md-2 max-xm justify-center" -->
     <div>
       <q-card class="my-card" flat bordered>
         <!-- product image -->
@@ -51,6 +50,7 @@
             color="yellow-8"
             readonly
           />
+          <!-- TODO: -->
           <span class="text-caption text-grey-9 q-ml-sm">3 (553) </span>
         </div>
         <q-card-actions align="around">
@@ -80,11 +80,12 @@
 import { ref } from "vue";
 import { onMounted } from "vue";
 import useProduct from "src/js/composable/product";
+import { api } from "src/boot/axios";
 const { product, getProduct } = useProduct();
 onMounted(getProduct);
 
 function getPath(image) {
-  const base = "http://localhost:8000/";
+  const base = api.defaults.baseURL + "/";
   return base + image;
 }
 
